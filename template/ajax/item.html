@@ -1,0 +1,30 @@
+{{ for( var i in it ){ var item = it[i]; }}
+<li>
+	<a target="_blank" href="{{= $.root }}/index.php/product/index/index/{{= item.id }}" alt="{{= item.name }}"></a>
+	<img src="http://p-product-cover.b0.upaiyun.com{{= item.pic }}" alt="{{= item.title }}" />
+	{{ switch( item.paytype ){ }}
+		{{ case 'ticket': }}
+			<bdo></bdo>
+			<em>{{= item.price }}</em>
+			<strong class="wine">酒店</strong>
+		{{ break; }}
+		{{ case 'prepay': }}
+			<em>{{= item.price }}</em>
+			<strong class="sky">酒店</strong>
+		{{ break; }}
+		{{ case 'fhpack': }}
+			<em>{{= item.price }}</em>
+			<strong class="sky">酒店</strong>
+		{{ break; }}
+		{{ case 'expe': }}
+			<bdo></bdo>
+			<em>{{= item.price }}</em>
+			<strong class="wine">体验</strong>
+		{{ break; }}
+	{{ } }}
+	<span>
+		<h2>{{= item.title }}<small>{{= item.name }}</small></h2>
+		<address><i class="glyphicon glyphicon-map-marker"></i>{{= item.cityname }}</address>
+	</span>
+</li>
+{{ }; }}

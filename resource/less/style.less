@@ -1,0 +1,714 @@
+/* General */
+.mask{
+	.screen-max;
+	.none;
+
+	z-index: 99;
+	background: rgba(0, 0, 0, .5);
+
+	&.show{
+		.block;
+	}
+}
+
+html{
+	background: #f9f8f7;
+}
+
+header, footer{
+	.fixed;
+	left: 0; right: 0;
+}
+
+/* Header */
+header{
+	.clearfix;
+	.over-hide;
+
+	height: 40px;
+	top: 0;
+	z-index: 100;
+
+	background: @deepdark;
+
+	&.affix{
+		height: 0;
+	}
+
+	button{
+		.block;
+		.fit;
+		.text-center;
+
+		width: 40px;
+		height: 40px;
+
+		font-size: 1.5rem;
+		color: @ghostwhite;
+		background: transparent;
+	}
+
+	h1{
+		.text-center;
+
+		height: 0;
+		line-height: 40px;
+		color: @white;
+		font-size: 1.25rem;
+
+		a{
+			.block;
+
+			width: 120px;
+			height: 40px;
+			padding: 0 10px;
+
+			img{
+				max-width: 100%;
+			}
+		}
+
+		&.index{
+			.left;
+			.text-left;
+
+			height: auto;
+		}
+	}
+	nav{
+		.right;
+
+		ul{
+			.absolute;
+			.over-hide;
+			.animate;
+
+			height: 0;
+			left: 0; right: 0;
+			background: @white;
+
+			li{
+				.left;
+				width: 50%;
+
+				a{
+					.block;
+
+					padding: 2rem 0 2rem 2rem;
+					font-size: 1.2rem;
+					color: @font;
+				}
+
+				i.glyphicon{
+					top: .25rem;
+					line-height: 1rem;
+					margin-right: 1.5rem;
+					font-size: 1.5rem;
+				}
+
+				&:last-child:before{
+					content: '';
+					.absolute;
+					
+					top: 1.5rem;
+					width: 1px;
+					height: 2.5rem;
+					background: @silver;
+				}
+			}
+
+			&:after{
+				.caret-top;
+				.absolute;
+
+				top: -6px;
+				right: 1.1rem;
+
+				border-left-width: 6px;
+				border-right-width: 6px;
+				border-bottom: 6px solid @red;
+			}
+
+			&.active{
+				height: 72px;
+			}
+		}
+	}
+	&>button{
+		.right;
+	}
+	form{
+		.absolute;
+
+		top: 8px;
+		left: 10px;
+		right: 90px;
+
+		input{
+			.right;
+			.over-hide;
+
+			width: 0;
+			height: 24px;
+			line-height: 24px;
+			padding: 0;
+			color: @white;
+			background: #1b2030;
+
+			.animate;
+
+			&.active{
+				width: 100%;
+				padding: 0 .5rem;
+			}
+		}
+	}
+}
+
+/* Footer */
+footer{
+	bottom: 0;
+}
+
+/* Swiper */
+.swiper-container{
+
+	.swiper-pagination-bullet{
+		background-color: @white;
+
+		&.swiper-pagination-bullet-active{
+			background-color: @hotpink;
+		}
+	}
+
+}
+
+/* More */
+.more{
+	.relative;
+	.text-center;
+
+	padding: 2rem 0;
+	background: @whitesmoke;
+
+	span{
+		.block;
+		.absolute;
+
+		top: 50%;
+		left: 50%;
+		z-index: 1;
+		width: 8rem;
+		height: 2rem;
+		line-height: 2rem;
+		margin: -1em -4rem;
+
+		background: @whitesmoke;
+	}
+
+	i{
+		.v-text;
+
+		top: 2px;
+		right: 2px;
+	}
+
+	&:after{
+		.absolute;
+		.block;
+
+		content: ' ';
+		height: 1px;
+		left: 0;
+		right: 0;
+		top: 50%;
+		border-top: 1px dashed @darkgray;
+	}
+}
+
+/* Piece */
+.piece{
+	&:before{
+		content: 'ⅹ';
+		padding-right: .25rem;
+	}
+	&:after{
+		content: '份';
+		padding-left: .25rem;
+	}
+}
+
+/* Guide */
+.guide{
+	padding: 1rem 0;
+
+	li{
+		.text-center;
+
+		padding: 0 1rem;
+
+		a{
+			.block;
+
+			padding: 1rem 0;
+			color: @steelblue;
+		}
+
+		i{
+			.block;
+
+			height: 1.6rem;
+			margin-bottom: .5rem;
+			font-size: 1.6rem;
+
+			&.glyphicon-parent{
+				background: url(../img/icon_list_8.png) center / contain no-repeat;
+			}
+			&.glyphicon-free{
+				background: url(../img/icon_list_32.png) center / contain no-repeat;
+			}
+		}
+	}
+}
+
+/* Condition */
+.condition{
+
+	padding: 0 .75rem;
+
+	li{
+		padding: .75rem;
+
+		a{
+			.block;
+			.text-center;
+
+			padding: .5rem;
+			color: @dimgray;
+			border: 1px solid @gainsboro;
+			background: @white;
+
+			&.active{
+				color: @mediumaquamarine;
+				border-color: @mediumaquamarine;
+			}
+		}
+	}
+}
+
+/* Product */
+.products{
+
+	.recommend-tip{
+		.text-center;
+
+		padding: 1.25rem 0;
+		font-size: 1.25rem;
+		color: @font;
+
+		i{
+			.v-top;
+
+			top: 0;
+			right: .25rem;
+			font-size: 1.325rem;
+		}
+	}
+
+	.order-tip{
+		.more;
+
+		color: @mediumaquamarine;
+
+		i{
+			.relative;
+			.v-top;
+
+			left: .25rem;
+		}
+
+		&:after{
+			border-top-color: @mediumaquamarine;
+		}
+	}
+
+	ul{
+		padding: 0 1rem;
+
+		li{
+			.relative;
+
+			margin-bottom: 2rem;
+
+			a, bdo, em, strong, address{
+				.absolute;
+			}
+			a, bdo, em{
+				left: 0;
+			}
+			strong, address{
+				right: .75rem;
+			}
+
+			a{
+				top: 0; left: 0; right: 0; bottom: 0; z-index: 1;
+			}
+
+			bdo{
+				color: @white;
+				border-top: 3rem solid @item;
+				border-right: 3rem solid transparent;
+
+				&:after{
+					.absolute;
+
+					content: '券';
+					left: .35rem;
+					top: -2.5rem;
+				}
+			}
+
+			em{
+				.price;
+
+				line-height: 2rem;
+				padding: .4rem .6rem;
+				top: 100px;
+				font-size: 2rem;
+				color: @item;
+				background: rgba(0, 0, 0, .7);
+
+				&:before{
+					.v-top;
+
+					line-height: 1.5rem;
+					padding: 0 .25rem;
+					font-size: 1rem;
+				}
+			}
+
+			strong{
+				.text-center;
+
+				width: 3.75rem;
+				height: 3.75rem;
+				line-height: 3.75rem;
+				bottom: 2.85rem;
+				border: 1px solid;
+				background: rgba(255, 255, 255, .75);
+				border-radius: 10rem;
+
+				&.wine{
+					border-color: @item;
+				}
+				&.sky{
+					border-color: @deepskyblue;
+				}
+			}
+
+			span{
+				.block;
+
+				padding: .75rem;
+
+				h2{
+					line-height: 1.5rem;
+					font-size: 1.2rem;
+
+					small{
+						.block;
+
+						color: @lightslategray;
+					}
+				}
+
+				address{
+					bottom: .25rem;
+					color: @darkgray;
+
+					i{
+						.v-top;
+
+						top: 0;
+					}
+				}
+
+			}
+		}
+	}
+}
+
+/* Search */
+.search-result-no{
+	padding: 1rem;
+	color: @dimgray;
+	background: @white;
+}
+
+/* Order */
+.order-result-no{
+	.text-center;
+
+	padding: 2rem 0;
+	color: @gray;
+
+	i{
+		.block;
+
+		padding: 1rem 0;
+		font-size: 3rem;
+	}
+}
+.order-list{
+
+	ul{
+		& > li{
+			.relative;
+
+			padding-top: 2rem;
+
+			a{
+				.absolute;
+
+				top: 2rem; left: 0; right: 0; bottom: 0; z-index: 1;
+			}
+
+			dl{
+				padding: 1rem;
+				border-top: 1px solid @lightgray;
+				border-bottom: 1px solid @lightgray;
+				background: @white;
+
+				dt, dd{
+					.clearfix;
+				}
+
+				dt{
+					padding-bottom: 1rem;
+					border-bottom: 1px solid @lightgray;
+				}
+				dd{
+					padding-top: 1rem;
+				}
+
+				strong{
+					.left;
+
+					&:before{
+						content: '订单号　';
+					}
+				}
+				bdo{
+					.right;
+
+					color: @mediumaquamarine;
+				}
+				img{
+					.left;
+
+					width: 8rem;
+					height: 6rem;
+				}
+				div{
+					margin-left: 9rem;
+				}
+
+				ol{
+					margin-top: 1rem;
+
+					& > li{
+						.clearfix;
+
+						color: @silver;
+
+						label{
+							.left;
+						}
+						em{
+							.piece;
+							.right;
+						}
+					}
+				}
+			}
+
+
+		}
+	}
+
+}
+
+.order-detail{
+	
+	& > div{
+		background: @white;
+	}
+
+	.order-info{
+		margin-bottom: 2rem;
+		border-bottom: 1px solid @lightgray;
+
+		div, ul{
+			padding: 1rem 0;
+		}
+
+		div{
+			.text-center;
+
+			line-height: 2rem;
+
+			h1{
+				font-size: 1.5rem;
+			}
+
+			small{
+				.block;
+
+				font-size: 1rem;
+			}
+
+			span{
+				.in-block;
+
+				padding: .25rem 2.25rem;
+				border: 1px solid @mediumaquamarine;
+			}
+		}
+
+		ul{
+
+			border-top: 1px dashed @mediumaquamarine;
+
+			li{
+				padding: .25rem .75rem;
+			}
+
+		}
+	}
+
+	.ticket-info{
+		border-top: 1px solid @lightgray;
+		border-bottom: 1px solid @lightgray;
+		padding: 1rem;
+
+		dt{
+			label, & > bdo, em{
+				.v-bottom;
+			}
+			span{
+				.right;
+				.in-block;
+
+				line-height: 1.5rem;
+
+				bdo{
+					color: @item;
+				}
+			}
+			p{
+				.clear;
+
+				line-height: 1.5rem;
+				color: @darkgray;
+			}
+			& > bdo{
+				font-size: 1.25rem;
+
+				&:before{
+					font-size: .75rem;
+				}
+			}
+			bdo{
+				.price;
+			}
+			em{
+				.piece;
+			}
+		}
+		dd{
+			margin-top: .75rem;
+			padding-top: .75rem;
+			border-top: 1px solid @gainsboro;
+		}
+	}
+
+}
+
+/* Verification */
+.verification{
+	.absolute;
+
+	top: 40px; left: 0; right: 0; bottom: 0;
+	background: url(../img/veribg.png) center / cover no-repeat;
+
+	.ver-panel{
+
+		font-size: 1.2rem;
+
+		ul{
+			.form-control;
+
+			background: @white;
+
+			li{
+				.relative;
+
+				padding: 1rem;
+
+				border-bottom: 1px solid @lightgray;
+
+				label, input, button{
+					height: 2rem;
+					line-height: 2rem;
+				}
+				input{
+					width: 100%;
+					padding: 0 .5rem;
+
+					&.identify{
+						width: 10rem;
+					}
+				}
+				button{
+					.absolute;
+
+					height: 4rem;
+					padding: 0 1rem;
+					top: 0;
+					right: 0;
+					color: @mediumaquamarine;
+					border-left: 1px solid @lightgray;
+					background: transparent;
+				}
+
+				&:last-child{
+					border-bottom: none;
+				}
+			}
+		}
+
+		.ver-submit{
+			padding: 1rem;
+
+			button{
+				.button-control;
+
+				width: 100%;
+				padding: 1rem 0;
+
+				color: @white;
+				background: @mediumaquamarine;
+			}
+		}
+	}
+}
+
+/* Section */
+section{
+	margin-top: 40px;
+	.animate;
+
+	&.distance{
+		margin-top: 112px;
+	}
+}

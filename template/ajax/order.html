@@ -1,0 +1,23 @@
+{{ for( var i in it ){ var item = it[i]; }}
+<li>
+	<a target="_blank" href="{{= $.root }}/index.php/order/orderr/detail?orderid={{= item.orderid }}"></a>
+	<dl>
+		<dt>
+			<strong>1503060012700126</strong>
+			<bdo>交易关闭</bdo>
+		</dt>
+		<dd>
+			<img src="http://p-product-cover.b0.upaiyun.com/2015/01/06/02504554ab85c579ef3.jpg">
+			<div>
+				<h3>苏州太湖高尔夫酒店</h3>
+				<ol>
+					<li>
+						<label>周末券</label>
+						<em>73</em>
+					</li>
+				</ol>
+			</div>
+		</dd>
+	</dl>
+</li>
+{{ }; }}
