@@ -1,11 +1,11 @@
 <script type="text/javascript">
 ;(function(_, undefined){
 
-_.project = '<?=project?>',
-_.active  = '<?=active?>';
+_.project = '',
+_.active  = '{{ it.active }}';
 
 })(window);
 </script>
-<script type="text/javascript" main="manifest" src="<?=host?>/resource/js/preload.js"></script>
+<script type="text/javascript" main="manifest" src="{{ it.host }}/resource/js/preload.js"></script>
 </body>
 </html>

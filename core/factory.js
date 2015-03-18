@@ -134,15 +134,70 @@ module.exports = function( general, callback ){
 
 		return $.merge( $,
 			
-			// Tools
+			// 0.Tools
 			{
 				inArray: function( one, arr, i ){
 					return arr ? [].indexOf.call( arr, one, i ) : -1;
 				}
 			},
 
-			// Extends
+			// 1.Extends
 			{
+				/* !!
+				 * Suffix Type
+				 * ----- ----- ----- ----- -----
+				 */
+				suffixType: function( suffix ){
+
+					return function( contentType ){
+
+						return { 'Content-Type': contentType[ suffix || 'octet' ] };
+
+					}({
+						'octet': 'application/octet-stream',
+						'.html': 'text/html',
+						'.js': 'text/javascript',
+						'.css': 'text/css',
+						'.jpg': 'image/jpg',
+						'.png': 'image/png',
+						'.gif': 'image/gif',
+						'.bmp': 'image/bmp',
+						'.ico': 'image/ico'
+					});
+
+				},
+
+				/* !!
+				 * Read Resource
+				 * ----- ----- ----- ----- -----
+				 * @ url: Resource Url
+				 * @ callback: Callback Function
+				 * @ base: Base Document
+				 */
+				read: function( url, callback ){
+
+					return function( route, callback ){
+
+						callback( require('fs'), __dirname + '/..' + url );
+
+					}
+					(
+						require('url'),
+
+						// Read Resource
+						function( fs, url ){
+
+							fs.readFile( url, function(e, item){
+
+								return callback( e || item );
+
+							});
+
+						}
+					);
+
+				},
+
 				/* !!
 				 * Load Template
 				 * ----- ----- ----- ----- -----
@@ -231,11 +286,39 @@ module.exports = function( general, callback ){
 
 								break;
 
+							// Result: Path
+							case 'path':
+
+								result = url.path;
+
+								break;
+
 						}
 
 						return result;
 
 					}( require('url'), require('path'), require('querystring') );
+
+				}
+			},
+
+			// 100.Server
+			{
+				server: function( port, callback ){
+
+					return function( http ){
+
+						http
+							// HTTP服务器
+							.createServer(function (request, response) {
+
+								callback( http, request, response );
+
+							})
+							// 监听端口
+							.listen( port );
+
+					}( require('http') );
 
 				}
 			}
